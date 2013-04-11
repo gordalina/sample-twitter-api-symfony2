@@ -1,0 +1,70 @@
+tweet_get:
+    pattern: /tweets/{id}
+    defaults: { _controller: TwitterApiBundle:Tweet:get, _format: json }
+    methods: GET
+    requirements:
+        id: \d+
+
+tweet_post:
+    pattern: /tweets
+    defaults: { _controller: TwitterApiBundle:Tweet:post, _format: json  }
+    methods: POST
+
+tweet_put:
+    pattern: /tweets/{id}
+    defaults: { _controller: TwitterApiBundle:Tweet:put, _format: json  }
+    methods: PUT
+    requirements:
+        id: \d+
+
+tweet_delete:
+    pattern: /tweets/{id}
+    defaults: { _controller: TwitterApiBundle:Tweet:delete, _format: json  }
+    methods: DELETE
+    requirements:
+        id: \d+
+
+user_get:
+    pattern: /{username}
+    defaults: { _controller: TwitterApiBundle:User:get, _format: json }
+    methods: GET
+    requirements:
+        username: "[-a-zA-Z0-9]+"
+
+user_register:
+    pattern: /register
+    defaults: { _controller: TwitterApiBundle:User:register, _format: json }
+    methods: POST
+
+user_get_tweets:
+    pattern: /{username}/tweets
+    defaults: { _controller: TwitterApiBundle:User:getTweets, _format: json }
+    methods: GET
+
+
+user_follow:
+    pattern: /{username}/followers
+    defaults: { _controller: TwitterApiBundle:User:follow, _format: json }
+    methods: POST
+
+user_unfollow:
+    pattern: /{username}/followers
+    defaults: { _controller: TwitterApiBundle:User:unfollow, _format: json }
+    methods: DELETE
+
+
+user_get_followers:
+    pattern: /{username}/followers
+    defaults: { _controller: TwitterApiBundle:User:getFollowers, _format: json }
+    methods: GET
+
+user_get_following:
+    pattern: /{username}/following
+    defaults: { _controller: TwitterApiBundle:User:getFollowing, _format: json }
+    methods: GET
+
+
+user_get_timeline:
+    pattern: /
+    defaults: { _controller: TwitterApiBundle:User:getTimeline, _format: json }
+    methods: GET

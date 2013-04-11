@@ -1,0 +1,7 @@
+parameters:
+#    twitter_domain.example.class: Twitter\DomainBundle\Example
+
+services:
+#    twitter_domain.example:
+#        class: %twitter_domain.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
