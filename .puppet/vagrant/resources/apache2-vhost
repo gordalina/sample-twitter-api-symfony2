@@ -1,0 +1,34 @@
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+
+        DocumentRoot /vagrant/web
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride All
+        </Directory>
+
+        <Directory /vagrant/web>
+                Header set Cache-Control "no-cache, no-store"
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+        </Directory>
+
+        ErrorLog /vagrant/app/logs/apache2/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog /vagrant/app/logs/apache2/access.log combined
+
+        # APC
+        Alias /apc /usr/share/doc/php-apc/
+
+        <Directory /usr/share/doc/php-apc/>
+            Options FollowSymLinks
+            DirectoryIndex apc.php
+        </Directory>
+
+</VirtualHost>
