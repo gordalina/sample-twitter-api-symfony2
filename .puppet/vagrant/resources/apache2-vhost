@@ -15,13 +15,13 @@
                 allow from all
         </Directory>
 
-        ErrorLog /vagrant/app/logs/apache2/error.log
+        ErrorLog /vagrant/app/log/apache2/error.log
 
         # Possible values include: debug, info, notice, warn, error, crit,
         # alert, emerg.
         LogLevel warn
 
-        CustomLog /vagrant/app/logs/apache2/access.log combined
+        CustomLog /vagrant/app/log/apache2/access.log combined
 
         # APC
         Alias /apc /usr/share/doc/php-apc/
